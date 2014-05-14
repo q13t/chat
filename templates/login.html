@@ -1,26 +1,105 @@
 <html>
-<head>
-   <meta charset="utf-8">
- </head>
-<body>
- <form name="loginform" method="post" action="">
-  <p><b>Для входа введи свои:</b><br>
-  <p><b>login</b><br>
-   <input type="text" name="login" size="40">
-   <p><b>pass</b><br>
-   <input type="text" name="pass" size="40">
-  <p><input type="submit" value="login"></p>
- </form>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script type="text/javascript">
+      function toggle(){
+        $(".trigger").slideToggle();
+      }
+    </script>
+    <style type="text/css">
+      #formcontainer {
+        width: 350;
+        height: 300; 
+        margin: 10% auto; 
+        background-color: rgb(245, 245, 245); 
+        padding: 2%; 
+        -webkit-border-radius: 15px;
+        }    
+      #button {
+        position:relative; 
+        background-color: rgb(49, 151, 116); 
+        color: white; 
+        height: 2em; 
+        width: 100%; 
+        line-height: 2em; 
+        text-align: center; 
+        -webkit-border-radius: 4px; 
+        vertical-align: bottom;
+        font-family: 'Comic Sans MS', cursive;
+        cursor: pointer;
+        }
+      input[type=text], form input[type=password] {
+        border:1px solid;//граница
+        font-size: 12px;//шрифт
+        padding: 5px 10px;//отступы, если необходимо
+        -webkit-border-radius: 6px;//скругляем углы
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        border-color:rgba(49, 151, 116,.75);
+        box-shadow:0 0 8px rgba(49, 151, 116,.5);//описываем тень
+        -moz-box-shadow:0 0 8px rgba(49, 151, 116,.5);
+        -webkit-box-shadow:0 0 8px rgba(49, 151, 116,.5);
+        transition:border linear .2s,box-shadow linear .2s;//время смены цвета тени
+        -moz-transition:border linear .2s,-moz-box-shadow linear .2s;
+        -webkit-transition:border linear .2s,-webkit-box-shadow linear;}
+        }
+      input[type=text]:focus, form input[type=password]:focus{ 
+        outline:none;//отменяем стандартный прямоугольник
+        -webkit-border-radius: 6px;//круглим углы
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        border-color:rgba(25,25,255,.75);//меняем цвет
+        box-shadow:0 0 8px rgba(25,25,255,.5);
+        -moz-box-shadow:0 0 8px rgba(25,25,255,.5);
+        -webkit-box-shadow:0 0 8px rgba(25,25,255,.5);
+        }
+      input[type=submit]{
+        margin-left: 28%;
+        margin-bottom: 1em;
+        display: inline-block;
+        cursor: pointer;
+        border: 1px solid #888888;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        color: rgba(255,255,255,0.9);
+        background: #888888;
+        height: 3em; 
+        width: 40%; 
+        line-height: 3em; 
+        text-align: center; 
+        font-weight: bold;
+        }
 
- <form name="regform" method="post" action="">
- <p><b>Или можешь зарегиться, но тогда надо вносить свои данные сюда:</b><br>
-   <p><b>Nick</b><br>
-   <input type="text" name="regnick" size="40">
-  <p><b>login</b><br>
-   <input type="text" name="reglogin" size="40">
-   <p><b>pass</b><br>
-   <input type="text" name="regpass" size="40">
-  <p><input type="submit" value="Register"></p>
- </form>
+    </style>
+  </head>
+<body>
+  <div id="formcontainer">
+  <div id="button" onclick="toggle()">
+    <p><b>LOGIN / SIGN IN</b><br>
+  </div>
+  <div class="trigger" style="display:block">
+    <form name="loginform" method="post" action="login.php">
+      <p><b>Для входа - введите свои данные:</b><br>
+      <p>Login:<br>
+      <input type="text" name="login" size="42">
+      <p>Пароль:<br>
+      <input type="password" name="password" size="42">
+      <p><input type="submit" value="Войти"></p>
+    </form>
+  </div>
+  <div class="trigger" style="display:none">
+    <form name="regform" method="post" action="registration.php">
+      <p><b>Внисите свои данные сюда:</b><br>
+      <p>Ваш псевдоним:<br>
+      <input type="text" name="regnick" size="42">
+      <p>Ваш Login:<br>
+      <input type="text" name="reglogin" size="42">
+      <p>Ваш пароль(не менее 6 символов):<br>
+      <input type="password" name="regpass" size="42">
+      <p><input type="submit" value="Зарегестрировать"></p>
+    </form>
+  </div>
+  </div>
 </body>
 </html>
