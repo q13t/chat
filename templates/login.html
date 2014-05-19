@@ -7,7 +7,27 @@
         $(".trigger").slideToggle();
       }
     </script>
+    <script type="text/javascript">
+//тут мой код
+function  check() {
+
+$.post('nickname_validation.php', 
+  function(data, textStatus) {
+       $('#span').html(data);
+});
+}
+//тут мой код
+    </script>
     <style type="text/css">
+      .inputRed{
+        border:1px solid #ff4040;
+        background: #ffcece;
+        }
+        .inputGreen{
+        border:1px solid #83c954;
+        background: #e8ffce;
+        }
+
       #formcontainer {
         width: 350;
         height: 300; 
@@ -92,7 +112,7 @@
     <form name="regform" method="post" action="registration.php">
       <p><b>Внисите свои данные сюда:</b><br>
       <p>Ваш псевдоним:<br>
-      <input type="text" name="regnick" size="42">
+      <input type="text" name="regnick" size="42" onchange="check()"><span id="span"></span>
       <p>Ваш Login:<br>
       <input type="text" name="reglogin" size="42">
       <p>Ваш пароль(не менее 6 символов):<br>
